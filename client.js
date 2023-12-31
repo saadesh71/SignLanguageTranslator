@@ -89,12 +89,13 @@ function start() {
   }
 
   var constraints = {
-      audio: false,
-      video: {
-          width: 640,
-          height: 480
-      }
-  };
+    audio: false,
+    video: {
+        width: { ideal: 800 },
+        height: { ideal: 600 },
+        frameRate: { ideal: 60 }
+    }
+};
 
   document.getElementById("media").style.display = "block";
   navigator.mediaDevices.getUserMedia(constraints).then(
@@ -195,4 +196,13 @@ function sdpFilterCodec(kind, codec, realSdp) {
 
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
+}
+
+function resetPage() {
+  window.scrollTo(0, 0);
+
+  var forms = document.getElementsByTagName('form');
+  for (var i = 0; i < forms.length; i++) {
+      forms[i].reset();
+  }
 }
