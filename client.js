@@ -73,70 +73,68 @@ function negotiate() {
 
 function start() {
   document.getElementById("start").style.display = "none";
+  document.getElementById("stop").style.display = "inline-block";
 
   pc = createPeerConnection();
 
   var time_start = null;
 
   function current_stamp() {
-    if (time_start === null) {
-      time_start = new Date().getTime();
-      return 0;
-    } else {
-      return new Date().getTime() - time_start;
-    }
+      if (time_start === null) {
+          time_start = new Date().getTime();
+          return 0;
+      } else {
+          return new Date().getTime() - time_start;
+      }
   }
 
   var constraints = {
-    audio: false,
-    video: {
-      width: 640,
-      height: 480,
-    },
+      audio: false,
+      video: {
+          width: 640,
+          height: 480
+      }
   };
 
   document.getElementById("media").style.display = "block";
   navigator.mediaDevices.getUserMedia(constraints).then(
-    function (stream) {
-      stream.getTracks().forEach(function (track) {
-        pc.addTrack(track, stream);
-      });
-      return negotiate();
-    },
-    function (err) {
-      alert("Could not acquire media: " + err);
-    }
+      function(stream) {
+          stream.getTracks().forEach(function(track) {
+              pc.addTrack(track, stream);
+          });
+          return negotiate();
+      },
+      function(err) {
+          alert("Could not acquire media: " + err);
+      }
   );
 }
-document.getElementById("stop").style.display = "inline-block";
 
 function stop() {
   document.getElementById("stop").style.display = "none";
+  document.getElementById("start").style.display = "inline-block";
 
-  // close data channel
   if (dc) {
-    dc.close();
+      dc.close();
   }
 
-  // close transceivers
   if (pc.getTransceivers) {
-    pc.getTransceivers().forEach(function (transceiver) {
-      if (transceiver.stop) {
-        transceiver.stop();
-      }
-    });
+      pc.getTransceivers().forEach(function(transceiver) {
+          if (transceiver.stop) {
+              transceiver.stop();
+          }
+      });
   }
 
-  // close local audio / video
-  pc.getSenders().forEach(function (sender) {
-    sender.track.stop();
+  pc.getSenders().forEach(function(sender) {
+      sender.track.stop();
   });
 
-  // close peer connection
-  setTimeout(function () {
-    pc.close();
+  setTimeout(function() {
+      pc.close();
   }, 500);
 }
+
 
 function sdpFilterCodec(kind, codec, realSdp) {
   var allowed = [];
