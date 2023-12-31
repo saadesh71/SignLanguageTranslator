@@ -160,6 +160,45 @@
           100% { opacity: 1; }
         }
 
+        
+        #helpButton {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 16px;
+            text-align: center;
+            line-height: 25px;
+            background-color: transparent;
+            color: #444;
+            border: 2px solid #444;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        
+        .popup-chat {
+            display: none;
+            position: fixed;
+            bottom: 140px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .card {
+            background-color: #222831;
+            border-radius: 8px;
+            padding: 16px;
+            color: #fff;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
 
         @media (max-width: 768px) {
         h1 {
@@ -219,6 +258,12 @@
             </div>
         </div>
     </div>
+    </div>
+    <button id="helpButton"><b>?</b></button>
+    <div id="popupChat" class="popup-chat">
+        <div class="card">
+            <img src="SignLangChart.webp" alt="Sign Language Alphabet Chart">
+        </div>
     </div>
     <footer class="text-center py-3" style="background-color: #222831; color: #EEEEEE; padding-bottom: 0 !important;">
         <p>&copy; 2024 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

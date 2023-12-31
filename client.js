@@ -210,3 +210,15 @@ function resetPage() {
       forms[i].reset();
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var helpButton = document.getElementById('helpButton');
+  var popupChat = document.getElementById('popupChat');
+  
+  helpButton.addEventListener('click', function() {
+      popupChat.style.display = popupChat.style.display === 'block' ? 'none' : 'block';
+  });
+});
+
+
+
