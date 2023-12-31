@@ -142,6 +142,25 @@
           transform: scale(0.95);
         }
 
+        .green-dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #53E53A;
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          display: none;
+          animation: blinkingDot 1s infinite;
+        }
+
+        @keyframes blinkingDot {
+          0% { opacity: 1; }
+          50% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+
+
         @media (max-width: 768px) {
         h1 {
             font-size: 1.5rem;
@@ -172,6 +191,7 @@
             </a>           
         </div>
     </nav>
+    <div class="green-dot"></div>
     <div class="content-wrap">
     <div class="container my-4">
         <h2 class="text-center mb-4 welcome">Welcome to <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -201,7 +221,12 @@
     </div>
     </div>
     <footer class="text-center py-3" style="background-color: #222831; color: #EEEEEE; padding-bottom: 0 !important;">
-        <p>&copy; 2024 SignToText. All rights reserved.</p>
+        <p>&copy; 2024 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="11" r="10"></circle>
+            <line x1="12" y1="10" x2="12" y2="21"></line>
+            <path d="M12 10 L16 14"></path>
+            <path d="M12 10 L8 14"></path>
+        </svg>  SignToText. All rights reserved.</p>
     </footer>
     </div>
 <script src="client.js"></script>

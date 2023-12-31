@@ -71,9 +71,12 @@ function negotiate() {
     });
 }
 
+var greenDot = document.querySelector('.green-dot');
+
 function start() {
   document.getElementById("start").style.display = "none";
   document.getElementById("stop").style.display = "inline-block";
+  greenDot.style.display = 'block';
 
   pc = createPeerConnection();
 
@@ -114,6 +117,7 @@ function start() {
 function stop() {
   document.getElementById("stop").style.display = "none";
   document.getElementById("start").style.display = "inline-block";
+  greenDot.style.display = 'none';
 
   if (dc) {
       dc.close();
