@@ -205,6 +205,19 @@ if __name__ == "__main__":
     app.router.add_get("/", index)
     app.router.add_get("/client.js", javascript)
     app.router.add_post("/offer", offer)
+
+    async def image(request):
+        image_name = request.match_info['name']
+        image_path = os.path.join(ROOT, 'images', image_name)
+        if os.path.isfile(image_path):
+            return web.FileResponse(image_path)
+        else:
+            raise web.HTTPNotFound()
+
+    # Add the image route here, before running the app.
+    app.router.add_get('/images/{name}', image)
+
+    # Finally, run the app.
     web.run_app(
         app, access_log=None, host=args.host, port=args.port, ssl_context=ssl_context
     )
