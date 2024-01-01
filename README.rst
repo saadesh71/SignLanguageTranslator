@@ -1,11 +1,15 @@
-Sign Language Transulator
----------------------------
-To visit the website - signtotext.aadesh.site
----------------------------
-To run the code in local run - 
-Suggested python version 3.11.5
+# Sign Language Translator
 
-Install Dependencies
+Visit the website: [signtotext.aadesh.site](https://signtotext.aadesh.site)
 
-pip install -r requirements.txt
-python server.py
+## Running the Code Locally
+
+- **Suggested Python Version**: 3.11.5
+- **Install Dependencies**: 
+  ```bash
+  pip install -r requirements.txt
+  ```
+- **To Run the Code**: 
+  ```bash
+  python server.py
+  ```
