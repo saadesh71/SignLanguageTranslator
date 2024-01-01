@@ -1,6 +1,6 @@
 # Sign Language Translator
 
-Visit the website: [signtotext.aadesh.site](https://signtotext.aadesh.site)
+Visit the website: https://signtotext.aadesh.site
 
 ## Running the Code Locally
 
